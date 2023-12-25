@@ -1,0 +1,46 @@
+# This is a Databricks asset bundle definition for mm_demo_prj.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: mm_demo_prj
+
+include:
+  - resources/*.yml
+
+targets:
+  # The 'dev' target, for development purposes. This target is the default.
+  dev:
+    # We use 'mode: development' to indicate this is a personal development copy:
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default
+    # - The 'development' mode is used for Delta Live Tables pipelines
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-4359607405776508.8.azuredatabricks.net
+
+  qa:
+    # We use 'mode: production' to indicate this is a production deployment.
+    # Doing so enables strict verification of the settings below.
+    mode: staging
+    workspace:
+      host: https://adb-4359607405776508.8.azuredatabricks.net
+      # We only have a single deployment copy for production, so we use a shared path.
+      # root_path: /Shared/.bundle/prod/${bundle.name}
+    run_as:
+      # This runs as arun.wagle@inceptopia.com in production. We could also use a service principal here
+      # using service_principal_name (see https://docs.databricks.com/dev-tools/bundles/permissions.html).
+      user_name: arun.wagle@inceptopia.com
+
+  prod:
+    # We use 'mode: production' to indicate this is a production deployment.
+    # Doing so enables strict verification of the settings below.
+    mode: production
+    workspace:
+      host: https://adb-4359607405776508.8.azuredatabricks.net
+      # We only have a single deployment copy for production, so we use a shared path.
+      # root_path: /Shared/.bundle/prod/${bundle.name}
+    run_as:
+      # This runs as arun.wagle@inceptopia.com in production. We could also use a service principal here
+      # using service_principal_name (see https://docs.databricks.com/dev-tools/bundles/permissions.html).
+      user_name: arun.wagle@inceptopia.com
+    
