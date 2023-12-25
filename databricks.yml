@@ -21,7 +21,7 @@ targets:
   qa:
     # We use 'mode: production' to indicate this is a production deployment.
     # Doing so enables strict verification of the settings below.
-    mode: staging
+    mode: development
     workspace:
       host: https://adb-4359607405776508.8.azuredatabricks.net
       # We only have a single deployment copy for production, so we use a shared path.
