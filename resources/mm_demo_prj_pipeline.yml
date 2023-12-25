@@ -3,8 +3,8 @@ resources:
   pipelines:
     mm_demo_prj_pipeline:
       name: ${bundle.target}_mm_demo_prj_pipeline
-      development: true,
-      photon: false,
+      development: true
+      photon: false
       catalog: demo
       target: test
       libraries:
