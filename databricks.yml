@@ -38,7 +38,7 @@ targets:
     workspace:
       host: https://adb-4359607405776508.8.azuredatabricks.net
       # We only have a single deployment copy for production, so we use a shared path.
-      # root_path: /Shared/.bundle/prod/${bundle.name}
+      root_path: /Shared/.bundle/prod/${bundle.name}
     run_as:
       # This runs as arun.wagle@inceptopia.com in production. We could also use a service principal here
       # using service_principal_name (see https://docs.databricks.com/dev-tools/bundles/permissions.html).
