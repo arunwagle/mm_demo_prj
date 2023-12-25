@@ -3,7 +3,10 @@ resources:
   pipelines:
     mm_demo_prj_pipeline:
       name: ${bundle.target}_mm_demo_prj_pipeline
-      target: mm_demo_prj_${bundle.environment}
+      development: true
+      photon: false
+      catalog: demo
+      target: test
       libraries:
         - notebook:
             path: ../src/dlt_pipeline.ipynb
